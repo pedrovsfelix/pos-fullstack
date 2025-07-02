@@ -78,3 +78,9 @@ console.log(mail); // null
 if(!mail) {
     console.log('O valor é nulo');
 }
+
+// Union Types
+let res: string | null;
+res = 'Olá';
+res = null;
+// res = 5 // Erro, pois o tipo é string ou null
