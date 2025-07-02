@@ -50,3 +50,13 @@ const showMessage = (name: string): string => {
     let message = "Olá" + name;
     return message;
 }
+
+// Tipagem de Objetos
+let user: { name: string, age: string, work?: string } = { name: 'Pedro', age: '28' };
+// 'work?:' - se torna uma propriedade opcional
+
+function signIn({ email, password } : { email: string, password: string }) {
+    console.log(`Email: ${email} - Senha: ${password}`);
+}
+
+signIn({ email: "pedro@email.com", password: "123" })
