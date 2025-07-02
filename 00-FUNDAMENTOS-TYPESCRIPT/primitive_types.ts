@@ -37,7 +37,16 @@ let numbers: number[] = [1, 2, 3, 4];
 let products = ["Notebook", 'Celular', 5, true];
 
 // Tipagem de Funções
-function sum(x: number, y: number) {
+function sum(x: number, y: number): number {
     const resultado = x + y;
     console.log('Resultado: ' + resultado)
+
+    return resultado
+}
+
+const result = sum(6, 4);
+
+const showMessage = (name: string): string => {
+    let message = "Olá" + name;
+    return message;
 }
