@@ -60,3 +60,21 @@ function signIn({ email, password } : { email: string, password: string }) {
 }
 
 signIn({ email: "pedro@email.com", password: "123" })
+
+// Diferenças entre Null e Undefined
+// Null
+let value: number;
+value = 12;
+console.log(value); // undefined
+
+let usr = {
+    name: 'Pedro',
+}
+//console.log(user.email) // undefined
+
+// Null
+let mail = null;
+console.log(mail); // null
+if(!mail) {
+    console.log('O valor é nulo');
+}
