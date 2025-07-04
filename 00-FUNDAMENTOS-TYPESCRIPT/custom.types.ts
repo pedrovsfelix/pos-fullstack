@@ -48,3 +48,19 @@ type SelectResponse = TProduct[] | null;
 function SelectProducts(): SelectResponse {
     return null; // ou retornar um array de produtos
 }
+
+// Intersecção de Tipos
+type Person = {
+    id: number,
+    name: string
+}
+
+// Aproveitando as informações de Person
+type Teacher = Person & {
+    subjects: string[],
+}
+
+// Aproveitando as informações de Person
+type Student = Person & {
+    age: number,
+}
