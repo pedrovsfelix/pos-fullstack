@@ -30,3 +30,21 @@ interface IStudent extends IPerson {
 
 let teacher: ITeacher = { id: 1, name: "Pedro", subjects: ["Math", "Science"] };
 let student: IStudent = { id: 2, name: "Babu", age: 5 };
+
+// Usando type
+type TProduct = {
+    id: number,
+    name: string,
+}
+
+function nProdcut(prd: TProduct) {
+
+}
+
+nProdcut({ id: 1, name: "Produto A" });
+
+type SelectResponse = TProduct[] | null;
+
+function SelectProducts(): SelectResponse {
+    return null; // ou retornar um array de produtos
+}
