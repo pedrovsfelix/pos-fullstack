@@ -129,3 +129,33 @@ enum Profile {
     Seller = 3,
 }
 let profile: number = Profile.Admin;
+
+// Generic
+/**
+ * S -> state
+ * T -> type
+ * K -> key
+ * V -> value
+ * E -> element
+ * P -> property
+ * R -> return
+ * C -> component
+ * etc
+ */
+function useState<T extends number | string = string>() {
+    let state: T;
+
+    function get() {
+        return state;
+    }
+
+    function set(newValue: T) {
+        state = newValue;
+    }
+
+    return { get, set };
+}
+
+let newState = useState();
+newState.get(); // Retorna o estado atual
+newState.set(10); // Atualiza o estado para 10
