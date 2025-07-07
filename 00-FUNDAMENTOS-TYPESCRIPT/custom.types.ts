@@ -119,3 +119,13 @@ type Size = "small" | "medium" | "large"
 let size: Size;
 
 size = "small"
+
+// Enums
+// Recurso para melhorar a legibilidade
+// Exemplo para vários tipos de usuários, restrições de ambientes, etc.
+enum Profile {
+    Admin = 1,
+    Client = 2,
+    Seller = 3,
+}
+let profile: number = Profile.Admin;
