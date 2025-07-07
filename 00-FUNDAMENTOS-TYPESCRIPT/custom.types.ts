@@ -101,4 +101,14 @@ type TypeString = string;
 type TypeNumber = number;
 
 interface X extends string {
-    // Não é possível estender tipos primitivos com interface}
+    // Não é possível estender tipos primitivos com interface
+}
+
+// Asserção de Tipos
+type UserResponse = {
+    id: number,
+    name: string,
+    avatar: string,
+}
+
+let userResponse = {} as UserResponse;
