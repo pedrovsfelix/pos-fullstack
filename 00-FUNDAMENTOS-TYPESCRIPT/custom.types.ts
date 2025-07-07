@@ -112,3 +112,10 @@ type UserResponse = {
 }
 
 let userResponse = {} as UserResponse;
+
+// Restringindo Valores
+type Size = "small" | "medium" | "large"
+
+let size: Size;
+
+size = "small"
