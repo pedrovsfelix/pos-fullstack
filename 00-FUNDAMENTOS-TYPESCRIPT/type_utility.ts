@@ -21,3 +21,17 @@ interface Book {
 
 // Utilizamos este utilitário para escolher a propriedade que desejamos reaproveitar e editar.
 const book: Pick<Book, "title"> = { title: "Typescript" }
+
+// Omit
+interface Journal {
+    title: string;
+    pages: number;
+    author: string;
+    description: string;
+}
+
+// Ocultar ou omitir alguma propriedade
+const journal: Omit<Journal, "description"> = { title: "Typescript", pages: 100, author: "Pedro" }
+
+// Para duas ou mais propriedades
+const journal2: Omit<Journal, "description" | "author"> = { title: "Javascript", pages: 50 }
