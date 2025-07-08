@@ -62,3 +62,15 @@ const persons: Record<string, Persons> = {
     1: { name: 'Pedro', gender: 'Masculino' },
     2: { name: 'Babu', gender: 'Masculino' }
 }
+
+
+// Typeof
+interface Product {
+    id: number,
+    name: string
+}
+
+const product1: Product = { id: 1, name: "Produto 1" }
+
+// A tipagem seja do tipo 1, herdando as características original do "Pai"
+const product2: typeof product1 = { id: 2, name: "Produto 2" }
