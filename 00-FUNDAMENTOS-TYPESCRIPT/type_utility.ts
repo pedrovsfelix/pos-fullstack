@@ -35,3 +35,30 @@ const journal: Omit<Journal, "description"> = { title: "Typescript", pages: 100,
 
 // Para duas ou mais propriedades
 const journal2: Omit<Journal, "description" | "author"> = { title: "Javascript", pages: 50 }
+
+// Record
+// Utilizamos para mapear tipos de objetos. Difinir chaves e valores
+const scores: Record<string, number> = {
+    "Pedro": 10,
+    Babu: 9,
+}
+
+// Limitando valores
+type Profile = "admin" | "user" | "guest"
+
+const user: Record<Profile, number> = {
+    "admin": 1,
+    user: 2,
+    guest: 3
+}
+
+// Para objetos personalizados
+interface Persons {
+    name: string,
+    gender: string
+}
+
+const persons: Record<string, Persons> = {
+    1: { name: 'Pedro', gender: 'Masculino' },
+    2: { name: 'Babu', gender: 'Masculino' }
+}
