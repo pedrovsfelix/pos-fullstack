@@ -74,3 +74,16 @@ const product1: Product = { id: 1, name: "Produto 1" }
 
 // A tipagem seja do tipo 1, herdando as características original do "Pai"
 const product2: typeof product1 = { id: 2, name: "Produto 2" }
+
+// Keyof
+// Utilizado para extrair chaves de objetos
+const icons = {
+    "home": "./path/home.svg",
+    "add": "./path/add.svg",
+    "remove": "./path/remove.svg"
+}
+
+type Icon = typeof icons
+
+const icon: keyof Icon = "add"; // "add" é uma chave válida
+const icon2: keyof Icon = "home"; // "home" é uma chave válida
