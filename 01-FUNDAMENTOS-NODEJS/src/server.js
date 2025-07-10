@@ -17,15 +17,33 @@ import http from 'http';
 // PATCH -> Atualizar uma informação única ou específica de um recurso do back-end
 // DELETE -> Remover uma informação do back-end
 
+// Stateful -> Aplicações com armazenamento local, perdem os dados após reiniciar o servidor
+// Stateless -> Aplicações sem armazenamento local, não perdem os dados após reiniciar o servidor (ex: REST APIs, MongoDB)
+
+const users = []
+
 const server = http.createServer((req, res) => {
     const { method, url } = req;
 
     if ( method === 'GET' && url === '/users' ) {
         // Listar usuários
-        return res.end('Listagem de usuários');
+        return res
+        .setHeader('Content-Type', 'application/json')
+        .end(JSON.stringify(users));
 
     }
-    
+
+    if ( method === 'POST' && url === '/users' ) {
+        users.push({
+            id: 1,
+            name: 'Babu',
+            email: 'babu@email.com'
+        })
+        // Criar usuários
+        return res.end('Criação de usuários');
+
+    }
+
     return res.end('Hello World');
 })
 
