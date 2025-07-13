@@ -1,4 +1,4 @@
-import http from 'http';
+import http from "http";
 
 // - Criar usuários
 // - Listagem de usuários
@@ -27,31 +27,45 @@ import http from 'http';
 // Stateful -> Aplicações com armazenamento local, perdem os dados após reiniciar o servidor
 // Stateless -> Aplicações sem armazenamento local, não perdem os dados após reiniciar o servidor (ex: REST APIs, MongoDB)
 
-const users = []
+const users = [];
 
-const server = http.createServer((req, res) => {
-    const { method, url } = req;
+const server = http.createServer(async (req, res) => {
+  const { method, url } = req;
 
-    if ( method === 'GET' && url === '/users' ) {
-        // Listar usuários
-        return res
-        .setHeader('Content-Type', 'application/json')
-        .end(JSON.stringify(users));
+  const buffers = [];
 
-    }
+  for await (const chunk of req) {
+    buffers.push(chunk);
+  }
 
-    if ( method === 'POST' && url === '/users' ) {
-        users.push({
-            id: 1,
-            name: 'Babu',
-            email: 'babu@email.com'
-        })
-        // Criar usuários
-        return res.writeHead(201).end();
+  try {
+    req.body = JSON.parse(Buffer.concat(buffers).toString())
+  } catch {
+    req.body = null
+  }
 
-    }
+  console.log(req.body)
 
-    return res.writeHead(404).end();
-})
+  if (method === "GET" && url === "/users") {
+    // Listar usuários
+    return res
+      .setHeader("Content-Type", "application/json")
+      .end(JSON.stringify(users));
+  }
 
-server.listen(3333)
+  if (method === "POST" && url === "/users") {
+    const { name, email } = req.body
+
+    users.push({
+      id: 1,
+      name,
+      email,
+    });
+    // Criar usuários
+    return res.writeHead(201).end();
+  }
+
+  return res.writeHead(404).end();
+});
+
+server.listen(3333);
