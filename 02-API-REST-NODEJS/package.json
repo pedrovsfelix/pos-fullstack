@@ -9,7 +9,7 @@
     "knex": "node --import tsx ./node_modules/.bin/knex",
     "build": "tsc",
     "start": "node dist/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest",
     "lint": "eslint src --ext .ts --fix"
   },
   "keywords": [],
@@ -18,9 +18,12 @@
   "devDependencies": {
     "@rocketseat/eslint-config": "^2.2.2",
     "@types/node": "^24.5.2",
+    "@types/supertest": "^6.0.3",
     "eslint": "^8.57.1",
+    "supertest": "^7.1.4",
     "tsx": "^4.20.5",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
   },
   "dependencies": {
     "@fastify/cookie": "^11.0.2",
